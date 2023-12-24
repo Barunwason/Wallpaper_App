@@ -1,4 +1,4 @@
-![Simulator Screenshot - iPhone 15 Pro Max - 2023-12-24 at 14 02 43](https://github.com/Barunwason/Wallpaper_App/assets/128703765/f6685aa7-4dd9-4310-bc38-e761a0c9f9c1)# WallPaper App
+WallPaper App
 
 The "WallPaper App" is a mobile application developed using Flutter and Dart. It simplifies the process of discovering and setting high-quality portrait wallpapers sourced from Pexels.com. This user-centric app offers a diverse collection of visually appealing portrait wallpapers, providing intuitive browsing, searching, and setting functionalities.
 
