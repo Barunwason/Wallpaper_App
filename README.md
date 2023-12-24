@@ -11,19 +11,8 @@ The "WallPaper App" is a mobile application developed using Flutter and Dart. It
 - 📱 Responsive and optimized for various devices.
 ## Overview of the functionality of the app
 
-<div style="display:flex;justify-content:center;">
-  <video width="400" height="900" controls>
-    <source src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/71b40b6b-599f-489e-b65f-6a4fea954617" >
-    Your browser does not support the video tag.
-  </video>
-  <video width="400" height="900" controls>
-    <source src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/71b40b6b-599f-489e-b65f-6a4fea954617" >
-    Your browser does not support the video tag.
-  </video>
-</div>
 
-
-
+https://github.com/Barunwason/Wallpaper_App/assets/128703765/71b40b6b-599f-489e-b65f-6a4fea954617
 
 https://github.com/Barunwason/Wallpaper_App/assets/128703765/7f908b24-8a17-40bb-b078-30a6eed7f745
 
