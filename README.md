@@ -13,7 +13,7 @@ The "WallPaper App" is a mobile application developed using Flutter and Dart. It
 ## Screenshots
 <img src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/3f5a6b1d-7872-4fd5-89ce-d37c6577e34f" alt="Image" width="400" height="900">
 
-
+<img src="file:///var/folders/p1/31_b601n2h14ppg2ltpvh_480000gn/T/simulator_screenshot_C41ED579-24A5-4793-A7FD-A43A57019449.png" alt="Image" width="400" height="900">
 ## Installation
 
 To run the app locally, follow these steps:
