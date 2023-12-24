@@ -1,16 +1,41 @@
-# wallpaper_app
+# Unique Portrait Wallpaper Viewer
 
-A new Flutter project.
+The "Unique Portrait Wallpaper Viewer" is a mobile application developed using Flutter and Dart. It simplifies the process of discovering and setting high-quality portrait wallpapers sourced from Pexels.com. This user-centric app offers a diverse collection of visually appealing portrait wallpapers, providing intuitive browsing, searching, and setting functionalities.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- 🖼️ Diverse collection of high-quality portrait wallpapers.
+- 🌟 Intuitive browsing, search, and setting options.
+- ⚙️ User preferences for personalized wallpaper experience.
+- 📶 Offline access to previously viewed wallpapers.
+- 📱 Responsive and optimized for various devices.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<!-- Add screenshots here -->
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+To run the app locally, follow these steps:
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `flutter pub get` to install dependencies.
+4. Run the app using `flutter run`.
+
+## Usage
+
+<!-- Add usage instructions -->
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or pull requests.
+
+## License
+
+This project is licensed under [MIT License](LICENSE).
+
+## Acknowledgements
+
+<!-- Add acknowledgements or credits -->
+
