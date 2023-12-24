@@ -11,7 +11,7 @@ The "Unique Portrait Wallpaper Viewer" is a mobile application developed using F
 - 📱 Responsive and optimized for various devices.
 
 ## Screenshots
-<img src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/3f5a6b1d-7872-4fd5-89ce-d37c6577e34f" alt="Image" width="400" height="300">
+<img src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/3f5a6b1d-7872-4fd5-89ce-d37c6577e34f" alt="Image" width="400" height="800">
 
 
 
