@@ -9,6 +9,15 @@ The "WallPaper App" is a mobile application developed using Flutter and Dart. It
 - ⚙️ User preferences for personalized wallpaper experience.
 - 📶 Offline access to previously viewed wallpapers.
 - 📱 Responsive and optimized for various devices.
+## Overview of the functionality of the app
+
+
+https://github.com/Barunwason/Wallpaper_App/assets/128703765/71b40b6b-599f-489e-b65f-6a4fea954617
+
+
+https://github.com/Barunwason/Wallpaper_App/assets/128703765/7f908b24-8a17-40bb-b078-30a6eed7f745
+
+
 
 ## Screenshots
 <img src="https://github.com/Barunwason/Wallpaper_App/assets/128703765/3f5a6b1d-7872-4fd5-89ce-d37c6577e34f" alt="Image" width="400" height="900">
