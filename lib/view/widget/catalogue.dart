@@ -1,34 +1,49 @@
 import 'package:flutter/material.dart';
-
+import 'package:wallpaper_app/view/screen/category.dart';
+import 'package:wallpaper_app/model/categoryModel.dart';
 class catalog extends StatelessWidget {
-  const catalog({super.key});
+  String categoryName;
+  String categoryImgSrc;
+  catalog(
+      {super.key, required this.categoryImgSrc, required this.categoryName});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [ SizedBox( width:7,),
-        Container(
-
-            child: Stack(
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => CategoryScreen(
+                    catImgUrl: categoryImgSrc, catName: categoryName)));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 7),
+        child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(12),
               child: Image.network(
-                  fit: BoxFit.cover,
-                  height: 50,
-                  width: 100,
-                  "https://images.pexels.com/photos/9962890/pexels-photo-9962890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                  height: 50, width: 100, fit: BoxFit.cover, categoryImgSrc),
             ),
             Container(
               height: 50,
               width: 100,
               decoration: BoxDecoration(
-                  color: Colors.black26, borderRadius: BorderRadius.circular(20)),
-              child: Center(child: Text("Marvel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),)),
-            )
+                  color: Colors.black26,
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+            Positioned(
+                left: 30,
+                top: 15,
+                child: Text(
+                  categoryName,
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600),
+                ))
           ],
-        )),
-      ],
+        ),
+      ),
     );
   }
 }

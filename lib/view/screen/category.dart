@@ -1,78 +1,134 @@
 import 'package:flutter/material.dart';
+import 'package:wallpaper_app/controller/api.dart';
+import 'package:wallpaper_app/model/photoModel.dart';
+import 'package:wallpaper_app/view/screen/search.dart';
 import 'package:wallpaper_app/view/widget/customappbar.dart';
 import 'package:wallpaper_app/view/widget/searchbar.dart';
 import 'package:wallpaper_app/view/widget/catalogue.dart';
+import 'package:wallpaper_app/view/screen/fullScreen.dart';
+class CategoryScreen extends StatefulWidget {
+  String catName;
+  String catImgUrl;
 
-class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
+  CategoryScreen({super.key, required this.catImgUrl, required this.catName});
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
+  late List<photoModel> categoryResults;
+  bool isLoading  = true;
+  GetCatRelWall() async {
+    categoryResults = await APIoperation.Getsearchwallpaper(widget.catName);
+
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    GetCatRelWall();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          leading: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          title: appbar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        title: appbar(
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height:1),
-              Stack(
-                children: [
-                  Image.network(
-                      height:200,
-                      width:MediaQuery.of(context).size.width,
-                      fit:BoxFit.cover,
-                      "https://i.pinimg.com/564x/4c/85/6b/4c856b5a0d4996813f055947f831a9e3.jpg"),
-                  Positioned(
-                    left: 180,
-                    top: 50,
-                    child: Column(
-                      children: [
-                        Text("Category",
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400)),
-                        Text(
-                          "DC",
+      ),
+      body: isLoading  ? Center(child: CircularProgressIndicator(),)  : SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Image.network(
+                    height: 150,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                    widget.catImgUrl),
+                Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.black38,
+                ),
+                Positioned(
+                  left: 120,
+                  top: 40,
+                  child: Column(
+                    children: [
+                      Text("Category",
                           style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 15,
                               color: Colors.white,
-                              fontWeight: FontWeight.w600),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 7, vertical: 10),
-                height: MediaQuery.of(context).size.height,
-                child: GridView.builder(
-                    physics: BouncingScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              fontWeight: FontWeight.w300)),
+                      Text(
+                        widget.catName,
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              height: 700,
+              child: GridView.builder(
+                  physics: BouncingScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 400,
                       crossAxisCount: 2,
-                      mainAxisExtent: 350,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 5,
+                      crossAxisSpacing: 13,
+                      mainAxisSpacing: 10),
+                  itemCount: categoryResults.length,
+                  itemBuilder: ((context, index) => GridTile(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FullScreen(
+                                    imgUrl:
+                                    categoryResults[index].imgsrc)));
+                      },
+                      child: Hero(
+                        tag: categoryResults[index].imgsrc,
+                        child: Container(
+                          height: 800,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              color: Colors.black26,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                                height: 800,
+                                width: 50,
+                                fit: BoxFit.cover,
+                                categoryResults[index].imgsrc),
+                          ),
+                        ),
+                      ),
                     ),
-                    itemCount: 16,
-                    itemBuilder: (Context, index) => Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.black26),
-                      child: ClipRRect(borderRadius: BorderRadius.circular(20),child: Image.network(fit: BoxFit.cover,"https://i.pinimg.com/564x/aa/78/ae/aa78ae59a957d526a09d6e53ecac385c.jpg"),),
-                      height: 40,
-                      width: 10,
-                    )),
-              )
-            ],
-          ),
-        ));
+                  ))),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

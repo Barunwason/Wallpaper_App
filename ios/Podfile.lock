@@ -1,0 +1,28 @@
+PODS:
+  - Flutter (1.0.0)
+  - image_downloader (0.0.1):
+    - Flutter
+  - open_file (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - image_downloader (from `.symlinks/plugins/image_downloader/ios`)
+  - open_file (from `.symlinks/plugins/open_file/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  image_downloader:
+    :path: ".symlinks/plugins/image_downloader/ios"
+  open_file:
+    :path: ".symlinks/plugins/open_file/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  image_downloader: 73e190d6c9f286f2649554051348d9cb319cd4b3
+  open_file: 02eb5cb6b21264bd3a696876f5afbfb7ca4f4b7d
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.14.3

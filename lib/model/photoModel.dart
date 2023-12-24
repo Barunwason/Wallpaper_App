@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class photoModel {
-  late String imgsrc;
-  late String photographer;
+  String imgsrc;
+  String photographer;
 
-  photoModel({@required imgsrc,@required photographer});
+  photoModel({required this.imgsrc, required this.photographer});
 
-  static fromAPI2App (Map<String, dynamic>photomap){
-    return photoModel(imgsrc: (photomap["src"])["portrait"], photographer: ["photographer"]);
+  static photoModel fromAPI2App(Map<String, dynamic> photomap) {
+    return photoModel(
+        imgsrc: (photomap["src"])["portrait"],
+        photographer: photomap["photographer"]);
   }
 }

@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:wallpaper_app/controller/api.dart';
 import 'package:wallpaper_app/view/widget/customappbar.dart';
 import 'package:wallpaper_app/view/widget/searchbar.dart';
 import 'package:wallpaper_app/view/widget/catalogue.dart';
+import 'package:wallpaper_app/model/photoModel.dart';
 
-class searchscreen extends StatelessWidget {
-  const searchscreen({super.key});
+class searchscreen extends StatefulWidget {
+  String query;
+  searchscreen({super.key, required this.query});
 
+  @override
+  State<searchscreen> createState() => _searchscreenState();
+}
+
+class _searchscreenState extends State<searchscreen> {
+  List<photoModel> searchresult = [];
+  void initState() {
+    // TODO: implement initState
+    getsearchresult();
+    super.initState();
+  }
+
+  getsearchresult() async {
+    searchresult = await APIoperation.Getsearchwallpaper(widget.query);
+    print('Search Results: $searchresult');
+    setState(() {});
+  }
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +49,6 @@ class searchscreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                 height: MediaQuery.of(context).size.height,
@@ -39,15 +60,19 @@ class searchscreen extends StatelessWidget {
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 5,
                     ),
-                    itemCount: 16,
+                    itemCount: searchresult.length,
                     itemBuilder: (Context, index) => Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.black26),
-                      child: ClipRRect(borderRadius: BorderRadius.circular(20),child: Image.network(fit: BoxFit.cover,"https://i.pinimg.com/564x/aa/78/ae/aa78ae59a957d526a09d6e53ecac385c.jpg"),),
-                      height: 40,
-                      width: 10,
-                    )),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.black26),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                                fit: BoxFit.cover, searchresult[index].imgsrc),
+                          ),
+                          height: 40,
+                          width: 10,
+                        )),
               )
             ],
           ),
